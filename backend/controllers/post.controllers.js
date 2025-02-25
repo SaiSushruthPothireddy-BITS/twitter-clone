@@ -34,8 +34,8 @@ export const createPost = async (req, res) => {
         return res.status(201).json(newPost);
 
     } catch (error) {
-        console.log("Error in createPost controller", error.message);
-        res.status(500).json({ error: "Internal Server Error" });
+        res.status(500).json({ error: "Internal server error" });
+		console.log("Error in createPost controller: ", error);
     }
 };
 
@@ -61,7 +61,7 @@ export const deletePost = async (req, res) => {
         res.status(200).json({ message: "Post deleted successfully" });
     } catch (error) {
         console.log("Error in deletePost controller: ", error);
-        res.status(500).json({ error: "Internal server error" });
+		res.status(500).json({ error: "Internal server error" });
     }
 };
 
@@ -88,7 +88,7 @@ export const commentOnPost = async (req, res) => {
 
         return res.status(200).json(post);
     } catch (error) {
-        console.log("Error in commentOnPost controller: ", error);
+        console.log("Error in commentOnPost controller: ", error.message);
         res.status(500).json({ error: "Internal server error" });
     }
 };
